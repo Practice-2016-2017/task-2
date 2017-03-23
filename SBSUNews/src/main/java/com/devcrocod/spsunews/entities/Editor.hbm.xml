@@ -4,8 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spsunewsbd.entities.Like" table="like" schema="spsunews_database">
-        <id name="idLike" column="id_like"/>
-        <property name="value" column="value"/>
+    <class name="com.devcrocod.spsunews.entities.Editor" table="editor" schema="spsunews_database">
+        <id name="idEditor" column="id_editor"/>
+        <property name="name" column="name"/>
     </class>
 </hibernate-mapping>

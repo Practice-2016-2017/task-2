@@ -1,4 +1,4 @@
-package com.devcrocod.spsunewsbd.entities;
+package com.devcrocod.spsunews.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;

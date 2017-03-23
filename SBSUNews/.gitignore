@@ -1,6 +1,7 @@
-/.idea
-
+.idea/
+.idea/vcs.xml
 lib/
 out/
 src/test/
 target/
+SBSUNews.iml

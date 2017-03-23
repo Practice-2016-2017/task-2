@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spsunewsbd.entities.Comment" table="comment" schema="spsunews_database">
+    <class name="com.devcrocod.spsunews.entities.Comment" table="comment" schema="spsunews_database">
         <id name="idComment" column="id_comment"/>
         <property name="date" column="date"/>
         <property name="text" column="text"/>

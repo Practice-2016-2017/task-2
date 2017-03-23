@@ -4,8 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spsunewsbd.entities.Editor" table="editor" schema="spsunews_database">
-        <id name="idEditor" column="id_editor"/>
+    <class name="com.devcrocod.spsunews.entities.User" table="user" schema="spsunews_database">
+        <id name="idUser" column="id_user"/>
         <property name="name" column="name"/>
+        <property name="lastName" column="last_name"/>
+        <property name="password" column="password"/>
     </class>
 </hibernate-mapping>
