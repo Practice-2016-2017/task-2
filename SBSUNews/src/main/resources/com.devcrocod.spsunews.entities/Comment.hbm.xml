@@ -1,12 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
     <class name="com.devcrocod.spsunews.entities.Comment" table="comment" schema="spsunewsbd">
         <id name="idComment" column="id_comment"/>
         <property name="date" column="date"/>
         <property name="text" column="text"/>
+        <property name="articleCommentId" column="article_comment_id"/>
+        <property name="userCommentId" column="user_comment_id"/>
     </class>
 </hibernate-mapping>

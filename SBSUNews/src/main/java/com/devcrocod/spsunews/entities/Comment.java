@@ -1,9 +1,6 @@
 package com.devcrocod.spsunews.entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 
@@ -12,6 +9,8 @@ public class Comment {
     private int idComment;
     private Date date;
     private String text;
+    private Integer articleCommentId;
+    private Integer userCommentId;
 
     @Id
     @Column(name = "id_comment")
@@ -43,6 +42,26 @@ public class Comment {
         this.text = text;
     }
 
+    //    @ManyToOne
+    @JoinColumn(name = "article_comment_id")
+    public Integer getArticleCommentId() {
+        return articleCommentId;
+    }
+
+    public void setArticleCommentId(Integer articleCommentId) {
+        this.articleCommentId = articleCommentId;
+    }
+
+    //    @ManyToOne
+    @JoinColumn(name = "user_comment_id")
+    public Integer getUserCommentId() {
+        return userCommentId;
+    }
+
+    public void setUserCommentId(Integer userCommentId) {
+        this.userCommentId = userCommentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,6 +72,8 @@ public class Comment {
         if (idComment != comment.idComment) return false;
         if (date != null ? !date.equals(comment.date) : comment.date != null) return false;
         if (text != null ? !text.equals(comment.text) : comment.text != null) return false;
+        if (!articleCommentId.equals(comment.articleCommentId)) return false;
+        if (!userCommentId.equals(comment.userCommentId)) return false;
 
         return true;
     }
@@ -62,6 +83,8 @@ public class Comment {
         int result = idComment;
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (text != null ? text.hashCode() : 0);
+        result = 31 * result + articleCommentId.hashCode();
+        result = 31 * result + userCommentId.hashCode();
         return result;
     }
 }

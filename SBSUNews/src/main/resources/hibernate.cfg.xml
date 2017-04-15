@@ -17,12 +17,12 @@
       <mapping class="com.devcrocod.spsunews.entities.Article"/>
       <mapping resource="com.devcrocod.spsunews.entities/Comment.hbm.xml"/>
       <mapping class="com.devcrocod.spsunews.entities.Comment"/>
-      <mapping resource="com.devcrocod.spsunews.entities/Editor.hbm.xml"/>
-      <mapping class="com.devcrocod.spsunews.entities.Editor"/>
       <mapping resource="com.devcrocod.spsunews.entities/Like.hbm.xml"/>
       <mapping class="com.devcrocod.spsunews.entities.Like"/>
       <mapping resource="com.devcrocod.spsunews.entities/User.hbm.xml"/>
       <mapping class="com.devcrocod.spsunews.entities.User"/>
+      <mapping resource="com.devcrocod.spsunews.entities/Roles.hbm.xml"/>
+      <mapping class="com.devcrocod.spsunews.entities.Roles"/>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

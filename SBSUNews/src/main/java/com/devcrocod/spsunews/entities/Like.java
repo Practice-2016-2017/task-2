@@ -1,16 +1,16 @@
 package com.devcrocod.spsunews.entities;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Arrays;
+import javax.persistence.JoinColumn;
 
 
 @Entity
 public class Like {
     private int idLike;
-    private byte[] value;
+    private Integer articleLikeId;
+    private Integer userLikeId;
 
     @Id
     @Column(name = "id_like")
@@ -22,14 +22,24 @@ public class Like {
         this.idLike = idLike;
     }
 
-    @Basic
-    @Column(name = "value")
-    public byte[] getValue() {
-        return value;
+//    @ManyToOne
+    @JoinColumn(name = "article_like_id")
+    public Integer getArticleLikeId() {
+        return articleLikeId;
     }
 
-    public void setValue(byte[] value) {
-        this.value = value;
+    public void setArticleLikeId(Integer articleLikeId) {
+        this.articleLikeId = articleLikeId;
+    }
+
+//    @ManyToOne
+    @JoinColumn(name = "user_like_id")
+    public Integer getUserLikeId() {
+        return userLikeId;
+    }
+
+    public void setUserLikeId(Integer userLikeId) {
+        this.userLikeId = userLikeId;
     }
 
     @Override
@@ -40,7 +50,8 @@ public class Like {
         Like like = (Like) o;
 
         if (idLike != like.idLike) return false;
-        if (!Arrays.equals(value, like.value)) return false;
+        if (!articleLikeId.equals(like.articleLikeId)) return false;
+        if (!userLikeId.equals(like.userLikeId)) return false;
 
         return true;
     }
@@ -48,7 +59,8 @@ public class Like {
     @Override
     public int hashCode() {
         int result = idLike;
-        result = 31 * result + Arrays.hashCode(value);
+        result = 31 * result + articleLikeId.hashCode();
+        result = 31 * result + userLikeId.hashCode();
         return result;
     }
 }
