@@ -9,8 +9,19 @@ public class Comment {
     private int idComment;
     private Date date;
     private String text;
-    private Integer articleCommentId;
-    private Integer userCommentId;
+    private Article articleCommentId;
+    private User userCommentId;
+
+    public Comment() {
+    }
+
+    public Comment(int idComment, Date date, String text, Article articleCommentId, User userCommentId) {
+        this.idComment = idComment;
+        this.date = date;
+        this.text = text;
+        this.articleCommentId = articleCommentId;
+        this.userCommentId = userCommentId;
+    }
 
     @Id
     @Column(name = "id_comment")
@@ -42,23 +53,23 @@ public class Comment {
         this.text = text;
     }
 
-    //    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "article_comment_id")
-    public Integer getArticleCommentId() {
+    public Article getArticleCommentId() {
         return articleCommentId;
     }
 
-    public void setArticleCommentId(Integer articleCommentId) {
+    public void setArticleCommentId(Article articleCommentId) {
         this.articleCommentId = articleCommentId;
     }
 
-    //    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "user_comment_id")
-    public Integer getUserCommentId() {
+    public User getUserCommentId() {
         return userCommentId;
     }
 
-    public void setUserCommentId(Integer userCommentId) {
+    public void setUserCommentId(User userCommentId) {
         this.userCommentId = userCommentId;
     }
 
@@ -70,6 +81,7 @@ public class Comment {
         Comment comment = (Comment) o;
 
         if (idComment != comment.idComment) return false;
+
         if (date != null ? !date.equals(comment.date) : comment.date != null) return false;
         if (text != null ? !text.equals(comment.text) : comment.text != null) return false;
         if (!articleCommentId.equals(comment.articleCommentId)) return false;

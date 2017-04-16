@@ -5,13 +5,38 @@
 <hibernate-mapping>
 
     <class name="com.devcrocod.spsunews.entities.Article" table="article" schema="spsunewsbd">
-        <id name="idArticle" column="id_article"/>
-        <property name="title" column="title"/>
-        <property name="date" column="date"/>
-        <property name="content" column="content"/>
-        <property name="image" column="image"/>
-        <property name="valueSum" column="value_sum"/>
-        <property name="editorArticleId" column="editor_article_id"/>
-        <property name="commentArticleId" column="comment_article_id"/>
+        <id name="idArticle" type="java.lang.Integer">
+            <column name="id_article"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.devcrocod.spsunews.entities.User" fetch="join" name="editorArticleId" lazy="false">
+            <column name="editor_article_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.devcrocod.spsunews.entities.Comment" fetch="join" name="commentArticleId" lazy="false">
+            <column name="comment_article_id"/>
+        </many-to-one>
+        <property name="title" type="string">
+            <column length="100" name="title" not-null="true"/>
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="date" not-null="true"/>
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" not-null="true"/>
+        </property>
+        <property name="image" type="binary">
+            <column name="image"/>
+        </property>
+        <property name="valueSum" type="java.lang.Integer">
+            <column name="value_sum"/>
+        </property>
+        <!--<id name="idArticle" column="id_article"/>-->
+        <!--<property name="title" column="title"/>-->
+        <!--<property name="date" column="date"/>-->
+        <!--<property name="content" column="content"/>-->
+        <!--<property name="image" column="image"/>-->
+        <!--<property name="valueSum" column="value_sum"/>-->
+        <!--<property name="editorArticleId" column="editor_article_id"/>-->
+        <!--<property name="commentArticleId" column="comment_article_id"/>-->
     </class>
 </hibernate-mapping>

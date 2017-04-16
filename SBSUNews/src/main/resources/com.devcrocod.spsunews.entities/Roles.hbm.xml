@@ -4,7 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="com.devcrocod.spsunews.entities.Roles" table="roles" schema="spsunewsbd">
-        <id name="idRoles" column="id_roles"/>
-        <property name="userRole" column="user_role"/>
+        <id name="idRoles" type="java.lang.Integer">
+            <column name="id_roles"/>
+            <generator class="identity"/>
+        </id>
+        <property name="userRole" type="java.lang.String">
+            <column name="user_role" not-null="true"/>
+        </property>
+        <!--<id name="idRoles" column="id_roles"/>-->
+        <!--<property name="userRole" column="user_role"/>-->
     </class>
 </hibernate-mapping>

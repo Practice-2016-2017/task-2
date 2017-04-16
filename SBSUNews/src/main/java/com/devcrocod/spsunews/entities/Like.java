@@ -1,16 +1,23 @@
 package com.devcrocod.spsunews.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 
 
 @Entity
 public class Like {
     private int idLike;
-    private Integer articleLikeId;
-    private Integer userLikeId;
+    private Article articleLikeId;
+    private User userLikeId;
+
+    public Like() {
+
+    }
+
+    public Like(int idLike, Article articleLikeId, User userLikeId) {
+        this.idLike = idLike;
+        this.articleLikeId = articleLikeId;
+        this.userLikeId = userLikeId;
+    }
 
     @Id
     @Column(name = "id_like")
@@ -22,23 +29,23 @@ public class Like {
         this.idLike = idLike;
     }
 
-//    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "article_like_id")
-    public Integer getArticleLikeId() {
+    public Article getArticleLikeId() {
         return articleLikeId;
     }
 
-    public void setArticleLikeId(Integer articleLikeId) {
+    public void setArticleLikeId(Article articleLikeId) {
         this.articleLikeId = articleLikeId;
     }
 
-//    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "user_like_id")
-    public Integer getUserLikeId() {
+    public User getUserLikeId() {
         return userLikeId;
     }
 
-    public void setUserLikeId(Integer userLikeId) {
+    public void setUserLikeId(User userLikeId) {
         this.userLikeId = userLikeId;
     }
 

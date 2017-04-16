@@ -8,6 +8,14 @@ public class Roles {
     private int idRoles;
     private String userRole;
 
+    public Roles() {
+    }
+
+    public Roles(int idRoles, String userRole) {
+        this.idRoles = idRoles;
+        this.userRole = userRole;
+    }
+
     @Id
     @Column(name = "id_roles")
     public int getIdRoles() {

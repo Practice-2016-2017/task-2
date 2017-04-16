@@ -1,6 +1,8 @@
 package com.devcrocod.spsunews.entities;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -9,9 +11,22 @@ public class User {
     private String name;
     private String lastName;
     private String password;
-    private Integer commentUserId;
-    private Integer likeUserId;
-    private Integer roles;
+    private Set<Comment> commentUserId;
+    private Set<Like> likeUserId;
+    private Roles roles;
+
+    public User() {
+    }
+
+    public User(int idUser, String name, String lastName, String password, Set<Comment> commentUserId, Set<Like> likeUserId, Roles roles) {
+        this.idUser = idUser;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.commentUserId = commentUserId;
+        this.likeUserId = likeUserId;
+        this.roles = roles;
+    }
 
     @Id
     @Column(name = "id_user")
@@ -53,33 +68,33 @@ public class User {
         this.password = password;
     }
 
-    //    @OneToMany
+    @OneToMany
     @JoinColumn(name = "comment_user_id")
-    public Integer getCommentUserId() {
+    public Set<Comment> getCommentUserId() {
         return commentUserId;
     }
 
-    public void setCommentUserId(Integer commentUserId) {
+    public void setCommentUserId(Set<Comment> commentUserId) {
         this.commentUserId = commentUserId;
     }
 
-    //    @OneToMany
+    @OneToMany
     @JoinColumn(name = "like_user_id")
-    public Integer getLikeUserId() {
+    public Set<Like> getLikeUserId() {
         return likeUserId;
     }
 
-    public void setLikeUserId(Integer likeUserId) {
+    public void setLikeUserId(Set<Like> likeUserId) {
         this.likeUserId = likeUserId;
     }
 
-    //    @OneToOne
+    @OneToOne
     @JoinColumn(name = "roles")
-    public Integer getRoles() {
+    public Roles getRoles() {
         return roles;
     }
 
-    public void setRoles(Integer roles) {
+    public void setRoles(Roles roles) {
         this.roles = roles;
     }
 

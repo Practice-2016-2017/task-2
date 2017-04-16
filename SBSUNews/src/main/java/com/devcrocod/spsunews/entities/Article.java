@@ -3,6 +3,8 @@ package com.devcrocod.spsunews.entities;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -14,8 +16,23 @@ public class Article {
     private String content;
     private byte[] image;
     private Integer valueSum;
-    private Integer editorArticleId;
-    private Integer commentArticleId;
+    private User editorArticleId;
+    private Set<Comment> commentArticleId;
+
+    public Article() {
+
+    }
+
+    public Article(int idArticle, String title, Date date, String content, byte[] image, Integer valueSum, User editorArticleId, Set<Comment> commentArticleId) {
+        this.idArticle = idArticle;
+        this.title = title;
+        this.date = date;
+        this.content = content;
+        this.image = image;
+        this.valueSum = valueSum;
+        this.editorArticleId = editorArticleId;
+        this.commentArticleId = commentArticleId;
+    }
 
     @Id
     @Column(name = "id_article")
@@ -77,23 +94,23 @@ public class Article {
         this.valueSum = valueSum;
     }
 
-//    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "editor_article_id")
-    public Integer getEditorArticleId() {
+    public User getEditorArticleId() {
         return editorArticleId;
     }
 
-    public void setEditorArticleId(Integer editorArticleId) {
+    public void setEditorArticleId(User editorArticleId) {
         this.editorArticleId = editorArticleId;
     }
 
-//    @OneToMany
+    @OneToMany
     @JoinColumn(name = "comment_article_id")
-    public Integer getCommentArticleId() {
+    public Set<Comment> getCommentArticleId() {
         return commentArticleId;
     }
 
-    public void setCommentArticleId(Integer commentArticleId) {
+    public void setCommentArticleId(Set<Comment> commentArticleId) {
         this.commentArticleId = commentArticleId;
     }
 
