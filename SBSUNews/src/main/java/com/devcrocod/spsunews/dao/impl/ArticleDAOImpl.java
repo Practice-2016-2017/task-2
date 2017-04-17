@@ -2,12 +2,10 @@ package com.devcrocod.spsunews.dao.impl;
 
 import com.devcrocod.spsunews.dao.interfaces.ArticleDAO;
 import com.devcrocod.spsunews.entities.Article;
+import com.devcrocod.spsunews.entities.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.ProjectionList;
-import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.*;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,40 +24,55 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     public ArticleDAOImpl() {
         articleProjection = Projections.projectionList();
-        articleProjection.add(Projections.property("idArticle"),"idArticle");
-        articleProjection.add(Projections.property("title"),"title");
-        articleProjection.add(Projections.property("date"),"date");
-        articleProjection.add(Projections.property("image"),"image");
-        articleProjection.add(Projections.property("valueSum"),"valueSum");
-        articleProjection.add(Projections.property("editorArticleId"),"editorArticleId");
-        articleProjection.add(Projections.property("commentArticleId"),"commentArticleId");
+        articleProjection.add(Projections.property("idArticle"), "idArticle");
+        articleProjection.add(Projections.property("title"), "title");
+        articleProjection.add(Projections.property("date"), "date");
+        articleProjection.add(Projections.property("image"), "image");
+        articleProjection.add(Projections.property("valueSum"), "valueSum");
+        articleProjection.add(Projections.property("editorArticleId"), "editorArticleId");
+        articleProjection.add(Projections.property("commentArticleId"), "commentArticleId");
     }
 
     @Transactional
     @Override
     public List<Article> getArticle() {
-
-        DetachedCriteria articleListCriteria = DetachedCriteria.forClass(Article.class, "a");
-        createAliases(articleListCriteria);
-
-        List<Article> articles = createArticleList(articleListCriteria);
-
+        List<Article> articles = createArticleList(createArticleCriteria());
         return articles;
     }
 
+    @Transactional
     @Override
-    public List<Article> getArticle(String name) {
-        return null;
+    public List<Article> getArticle(User editor) {
+        List<Article> articles = createArticleList(createArticleCriteria()
+                .add(Restrictions.ilike("editor.name", editor.getName(), MatchMode.ANYWHERE)));
+        return articles;
     }
 
+    @Transactional
+    @Override
+    public List<Article> getArticle(String title) {
+        List<Article> articles = createArticleList(createArticleCriteria()
+                .add(Restrictions.ilike("a.title", title, MatchMode.ANYWHERE)));
+        return articles;
+    }
+
+    @Transactional
     @Override
     public List<Article> getArticle(Date date) {
-        return null;
+        List<Article> articles = createArticleList(createArticleCriteria()
+                .add(Restrictions.ilike("date", date.toString(), MatchMode.ANYWHERE)));
+        return articles;
+    }
+
+    private DetachedCriteria createArticleCriteria() {
+        DetachedCriteria articleListCriteria = DetachedCriteria.forClass(Article.class, "a");
+        createAliases(articleListCriteria);
+        return articleListCriteria;
     }
 
     private void createAliases(DetachedCriteria criteria) {
-        criteria.createAlias("b.editorArticleId", "editor");
-        criteria.createAlias("b.commentArticleId", "comment");
+        criteria.createAlias("a.date", "date");
+        criteria.createAlias("a.editorArticleId", "editor");
     }
 
     private List<Article> createArticleList(DetachedCriteria articleListCriteria) {
