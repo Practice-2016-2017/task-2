@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.devcrocod.spbunews.entities.Comment" table="comment" schema="spsunewsbd">
+        <id name="idComment" type="java.lang.Integer">
+            <column name="id_comment"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.devcrocod.spbunews.entities.Article" fetch="join" name="articleCommentId" lazy="false">
+            <column name="article_comment_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.devcrocod.spbunews.entities.User" fetch="join" name="userCommentId" lazy="false">
+            <column name="user_comment_id" not-null="true"/>
+        </many-to-one>
+        <property name="date" type="java.util.Date">
+            <column name="date" not-null="true"/>
+        </property>
+        <property name="text" type="java.lang.String">
+            <column name="text" not-null="true"/>
+        </property>
+        <!--<id name="idComment" column="id_comment"/>-->
+        <!--<property name="date" column="date"/>-->
+        <!--<property name="text" column="text"/>-->
+        <!--<property name="articleCommentId" column="article_comment_id"/>-->
+        <!--<property name="userCommentId" column="user_comment_id"/>-->
+    </class>
+</hibernate-mapping>
