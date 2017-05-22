@@ -1,7 +1,6 @@
 package com.devcrocod.spbunews.entities;
 
 import javax.persistence.*;
-import java.util.Set;
 
 
 @Entity
@@ -10,14 +9,14 @@ public class User {
     private String name;
     private String lastName;
     private String password;
-    private Set<Comment> commentUserId;
-    private Set<Like> likeUserId;
+    private Comment commentUserId;
+    private Like likeUserId;
     private Roles roles;
 
     public User() {
     }
 
-    public User(int idUser, String name, String lastName, String password, Set<Comment> commentUserId, Set<Like> likeUserId, Roles roles) {
+    public User(int idUser, String name, String lastName, String password, Comment commentUserId, Like likeUserId, Roles roles) {
         this.idUser = idUser;
         this.name = name;
         this.lastName = lastName;
@@ -67,23 +66,23 @@ public class User {
         this.password = password;
     }
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "comment_user_id")
-    public Set<Comment> getCommentUserId() {
+    public Comment getCommentUserId() {
         return commentUserId;
     }
 
-    public void setCommentUserId(Set<Comment> commentUserId) {
+    public void setCommentUserId(Comment commentUserId) {
         this.commentUserId = commentUserId;
     }
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "like_user_id")
-    public Set<Like> getLikeUserId() {
+    public Like getLikeUserId() {
         return likeUserId;
     }
 
-    public void setLikeUserId(Set<Like> likeUserId) {
+    public void setLikeUserId(Like likeUserId) {
         this.likeUserId = likeUserId;
     }
 

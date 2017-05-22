@@ -1,7 +1,6 @@
 /* reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-    background-position: 0 0;
-    background-repeat: no-repeat;
+    background: no-repeat 0 0;
     border: 0 none;
     font-size: 100%;
     font-style: inherit;
@@ -22,9 +21,7 @@ table {
 }
 
 ol, ul {
-    list-style-image: none;
-    list-style-position: outside;
-    list-style-type: none;
+    list-style: none outside none;
 }
 
 q:before, q:after, blockquote:before, blockquote:after {
@@ -102,7 +99,7 @@ body {
 
 .aut p {
     float: left;
-    background: url("#{resource['images:user.jpg']}") no-repeat;
+    background: url("#{resource['images:user.png']}") no-repeat;
     padding-left: 25px;
     color: #fff;
     margin-top: 10px;
@@ -149,7 +146,7 @@ body {
 .feedback {
     display: block;
     float: right;
-    background: url("#{resource['images:feedback.jpg']}") no-repeat 0% 50%;
+    background: url("#{resource['images:feedback.png']}") no-repeat 0% 50%;
     padding-left: 24px;
     font-size: 14px;
     color: #1091c6;
@@ -223,17 +220,17 @@ body {
     border-radius: 5px;
     border: 1px solid #e2e2e2;
     float: left;
-    padding: 12px 0px 12px 38px;
+    padding: 12px 0 12px 38px;
     width: 610px;
 }
 
 .search-text:focus {
     border: 1px solid #30b0e1;
-    box-shadow: 0px 0px 5px 0px #abdfed;
+    box-shadow: 0 0 5px 0 #abdfed;
 }
 
 .button-text {
-    background: url("#{resource['images:submit.jpg']}") no-repeat;
+    background: url("#{resource['images:search.png']}") no-repeat;
     width: 18px;
     height: 18px;
     border: none;
@@ -268,7 +265,7 @@ body {
 }
 
 .nav li a {
-    padding: 9px 0px 9px 0px;
+    padding: 9px 0 9px 0;
     text-decoration: none;
     color: #888;
     display: block;
@@ -309,7 +306,7 @@ body {
 
 .left-menu a {
     margin-top: 5px;
-    padding: 9px 0px 9px 24px;
+    padding: 9px 0 9px 24px;
     display: block;
     color: #7f7f7f;
 }
@@ -441,14 +438,14 @@ body {
 .item .read {
     font-size: 14px;
     text-align: left;
-    background: url("#{resource['images:read-bg.png']}") no-repeat 0% 50%;
+    background: url("#{resource['images:reader.png']}") no-repeat 0% 50%;
     padding-left: 25px;
 }
 
 .item .delete {
     font-size: 14px;
     text-align: left;
-    background: url("#{resource['images:recycle.png']}") no-repeat 0% 50%;
+    background: url("#{resource['images:delete.png']}") no-repeat 0% 50%;
     padding-left: 25px;
 }
 
@@ -462,7 +459,7 @@ body {
 .item .download {
     font-size: 14px;
     text-align: left;
-    background: url("#{resource['images:down-bg.png']}") no-repeat 0% 50%;
+    background: url("#{resource['images:download.png']}") no-repeat 0% 50%;
     padding-left: 25px;
 }
 
@@ -488,7 +485,7 @@ body {
     border-radius: 5px;
     text-decoration: none;
     color: #fff;
-    box-shadow: inset -1px 2px 5px 0px #8a2c27;
+    box-shadow: inset -1px 2px 5px 0 #8a2c27;
 }
 
 /* footer */
@@ -546,7 +543,7 @@ body {
     border-radius: 5px;
     text-decoration: none;
     color: white;
-    box-shadow: inset -1px 2px 5px 0px #8a2c27;
+    box-shadow: inset -1px 2px 5px 0 #8a2c27;
 }
 
 .books_list .ui-paginator-page {
@@ -611,7 +608,7 @@ body {
     border-radius: 5px;
     border: 1px solid #e2e2e2;
     float: left;
-    padding: 12px 0px 12px 15px;
+    padding: 12px 0 12px 15px;
     background: #fff;
     margin-left: 7px;
 }
@@ -629,7 +626,7 @@ body {
 
 .image-info table {
     margin-left: 20px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .image-info td {

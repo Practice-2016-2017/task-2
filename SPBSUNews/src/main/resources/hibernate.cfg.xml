@@ -1,32 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/SPSUNews?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.connection.datasource">jdbc/SPSUNews</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
-      <mapping resource="com.devcrocod.spsunews.entities/Article.hbm.xml"/>
-      <mapping class="com.devcrocod.spbunews.entities.Article"/>
-      <mapping resource="com.devcrocod.spsunews.entities/Comment.hbm.xml"/>
-      <mapping class="com.devcrocod.spbunews.entities.Comment"/>
-      <mapping resource="com.devcrocod.spsunews.entities/Like.hbm.xml"/>
-      <mapping class="com.devcrocod.spbunews.entities.Like"/>
-      <mapping resource="com.devcrocod.spsunews.entities/User.hbm.xml"/>
-      <mapping class="com.devcrocod.spbunews.entities.User"/>
-      <mapping resource="com.devcrocod.spsunews.entities/Roles.hbm.xml"/>
-      <mapping class="com.devcrocod.spbunews.entities.Roles"/>
-      <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
+        <mapping resource="com.devcrocod.spsunews.entities/Article.hbm.xml"/>
+        <mapping resource="com.devcrocod.spsunews.entities/Comment.hbm.xml"/>
+        <mapping resource="com.devcrocod.spsunews.entities/Like.hbm.xml"/>
+        <mapping resource="com.devcrocod.spsunews.entities/User.hbm.xml"/>
+        <mapping resource="com.devcrocod.spsunews.entities/Roles.hbm.xml"/>
 
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
-  </session-factory>
+    </session-factory>
 </hibernate-configuration>

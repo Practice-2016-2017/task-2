@@ -3,7 +3,6 @@ package com.devcrocod.spbunews.entities;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Arrays;
-import java.util.Set;
 
 
 @Entity
@@ -16,13 +15,13 @@ public class Article {
     private byte[] image;
     private Integer valueSum;
     private User editorArticleId;
-    private Set<Comment> commentArticleId;
+    private Comment commentArticleId;
 
     public Article() {
 
     }
 
-    public Article(int idArticle, String title, Date date, String content, byte[] image, Integer valueSum, User editorArticleId, Set<Comment> commentArticleId) {
+    public Article(int idArticle, String title, Date date, String content, byte[] image, Integer valueSum, User editorArticleId, Comment commentArticleId) {
         this.idArticle = idArticle;
         this.title = title;
         this.date = date;
@@ -103,13 +102,13 @@ public class Article {
         this.editorArticleId = editorArticleId;
     }
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "comment_article_id")
-    public Set<Comment> getCommentArticleId() {
+    public Comment getCommentArticleId() {
         return commentArticleId;
     }
 
-    public void setCommentArticleId(Set<Comment> commentArticleId) {
+    public void setCommentArticleId(Comment commentArticleId) {
         this.commentArticleId = commentArticleId;
     }
 

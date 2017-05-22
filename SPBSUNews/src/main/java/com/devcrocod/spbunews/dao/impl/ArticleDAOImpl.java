@@ -35,14 +35,14 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Transactional
     @Override
-    public List<Article> getArticle() {
+    public List<Article> getArticles() {
         List<Article> articles = createArticleList(createArticleCriteria());
         return articles;
     }
 
     @Transactional
     @Override
-    public List<Article> getArticle(User editor) {
+    public List<Article> getArticles(User editor) {
         List<Article> articles = createArticleList(createArticleCriteria()
                 .add(Restrictions.ilike("editor.name", editor.getName(), MatchMode.ANYWHERE)));
         return articles;
@@ -50,7 +50,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Transactional
     @Override
-    public List<Article> getArticle(String title) {
+    public List<Article> getArticles(String title) {
         List<Article> articles = createArticleList(createArticleCriteria()
                 .add(Restrictions.ilike("a.title", title, MatchMode.ANYWHERE)));
         return articles;
@@ -58,7 +58,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Transactional
     @Override
-    public List<Article> getArticle(Date date) {
+    public List<Article> getArticles(Date date) {
         List<Article> articles = createArticleList(createArticleCriteria()
                 .add(Restrictions.ilike("date", date.toString(), MatchMode.ANYWHERE)));
         return articles;
@@ -71,7 +71,6 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     private void createAliases(DetachedCriteria criteria) {
-        criteria.createAlias("a.date", "date");
         criteria.createAlias("a.editorArticleId", "editor");
     }
 

@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ArticleDAO {
 
-    List<Article> getArticle();
-    List<Article> getArticle(String title);
-    List<Article> getArticle(Date date);
-    List<Article> getArticle(User editor);
+    List<Article> getArticles();
+    List<Article> getArticles(String title);
+    List<Article> getArticles(Date date);
+    List<Article> getArticles(User editor);
 }
