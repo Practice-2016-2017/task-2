@@ -4,11 +4,13 @@ import com.devcrocod.spbunews.dao.interfaces.ArticleDAO;
 import com.devcrocod.spbunews.entities.Article;
 import com.devcrocod.spbunews.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Component("articleFacade")
+@Scope("singleton")
 public class ArticleFacade {
 
     @Autowired

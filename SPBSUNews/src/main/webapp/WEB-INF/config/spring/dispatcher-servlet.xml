@@ -75,4 +75,12 @@
             </bean>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
+        <property name="attributes">
+            <map>
+                <entry key="articleFacade" value-ref="articleFacade"/>
+            </map>
+        </property>
+    </bean>
 </beans>
