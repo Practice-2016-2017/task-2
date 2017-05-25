@@ -6,9 +6,9 @@
 
     <view-state id="main">
 
-        <!--<on-render>-->
-            <!--<evaluate expression="articleDAOImpl.articles"/>-->
-        <!--</on-render>-->
+        <transition on="searchByText">
+            <evaluate expression="articleFacade.searchArticleByText()"/>
+        </transition>
 
     </view-state>
 

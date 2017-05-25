@@ -13,14 +13,16 @@
     <ui:composition>
         <div class="search">
             <h:form styleClass="search_form" id="search_form">
-                <input type="submit" class="button-text"/>
+                <input type="submit" class="button-text"></input>
 
-                <h:inputText id="search_string" styleClass="search-text"/>
+                <h:inputText id="search_string" styleClass="search-text" value="#{searchCriteria.text}"/>
 
-                <p:commandButton id="btnSearch" value="#{msg.search}" styleClass="button"/>
+                <p:commandButton id="btnSearch" value="#{msg.search}" styleClass="button" action="searchByText"/>
 
                 <div class="dropDown">
-                    <h:selectOneMenu id="search_select"/>
+                    <h:selectOneMenu id="search_select" styleClass="select_search" value="#{searchCriteria.searchType}">
+                            <f:selectItems value="${utils.searchTypeList}"/>
+                    </h:selectOneMenu>
                 </div>
 
                 <script type="javascript">

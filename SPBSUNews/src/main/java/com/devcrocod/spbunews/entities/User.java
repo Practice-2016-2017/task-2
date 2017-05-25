@@ -17,6 +17,10 @@ public class User {
     public User() {
     }
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(int idUser, String name, String lastName, String password, Comment commentUserId, Like likeUserId, Roles roles) {
         this.idUser = idUser;
         this.name = name;

@@ -32,6 +32,10 @@
                         <h:outputLink styleClass="content_link" target="_blank">
                             <p:graphicImage width="110" height="150"/>
                         </h:outputLink>
+                        <p:panelGrid id="ratingPanel" columns="2">
+                            <p:rating id="rating" value="#{a.valueSum}" styleClass="rating" cancel="false" stars="5"/>
+                            <p:outputLabel id="voteCount" value="#{a.valueSum}" styleClass="vote-count"/>
+                        </p:panelGrid>
                     </div>
                     <div class="info">
                         <div class="article_name">
