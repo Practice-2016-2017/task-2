@@ -24,7 +24,7 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="user" password="user" authorities="ROLE_ADMIN" />
+                <user name="user" password="user" authorities="ROLE_USER" />
                 <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
@@ -36,7 +36,7 @@
 
         <csrf disabled="true"/>
 
-        <intercept-url pattern="/app/main" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/app/main" access="hasRole('ROLE_USER')"/>
 
         <form-login
                 login-page="/app/login"
