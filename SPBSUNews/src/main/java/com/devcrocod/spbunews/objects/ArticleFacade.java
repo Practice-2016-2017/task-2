@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+
 @Component("articleFacade")
 @Scope("singleton")
 public class ArticleFacade {
@@ -22,16 +23,29 @@ public class ArticleFacade {
 
     private List<Article> articles;
 
-
+    /**
+     * Sets ArticleDAO and puts articles from db into list
+     *
+     * @param articleDAO to be set
+     */
     public void setArticleDAO(ArticleDAO articleDAO) {
         this.articleDAO = articleDAO;
         articles = articleDAO.getArticles();
     }
 
+    /**
+     * Gets list of articles
+     *
+     * @return articles
+     */
     public List<Article> getArticles() {
         return articles;
     }
 
+    /**
+     * Chooses type of search and searches articles
+     *
+     */
     public void searchArticleByText() {
         switch (searchCriteria.getSearchType()) {
             case TITLE:
