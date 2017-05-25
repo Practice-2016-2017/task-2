@@ -27,7 +27,7 @@ public class Utils {
      */
     public Map<String, SearchType> getSearchTypeList() {
         searchTypeList.clear();
-        searchTypeList.put(msg.getMessage("article_date", null, FacesContext.getCurrentInstance().getViewRoot().getLocale()), SearchType.DATE);
+//        searchTypeList.put(msg.getMessage("article_date", null, FacesContext.getCurrentInstance().getViewRoot().getLocale()), SearchType.DATE);
         searchTypeList.put(msg.getMessage("editor_name", null, FacesContext.getCurrentInstance().getViewRoot().getLocale()), SearchType.EDITOR);
         searchTypeList.put(msg.getMessage("article_name", null, FacesContext.getCurrentInstance().getViewRoot().getLocale()), SearchType.TITLE);
         return searchTypeList;

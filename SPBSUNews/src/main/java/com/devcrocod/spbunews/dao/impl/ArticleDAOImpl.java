@@ -4,6 +4,7 @@ import com.devcrocod.spbunews.dao.interfaces.ArticleDAO;
 import com.devcrocod.spbunews.entities.Article;
 import com.devcrocod.spbunews.entities.User;
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.*;
 import org.hibernate.transform.Transformers;
@@ -62,6 +63,38 @@ public class ArticleDAOImpl implements ArticleDAO {
         List<Article> articles = createArticleList(createArticleCriteria()
                 .add(Restrictions.ilike("a.date", date.toString(), MatchMode.ANYWHERE)));
         return articles;
+    }
+
+    @Override
+    public void addArticle(String text, User edId, String title, java.sql.Date date) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Article article = new Article();
+        article.setContent(text);
+        article.setEditorArticleId(edId);
+        article.setTitle(title);
+        article.setDate(date);
+        session.saveOrUpdate(article);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void editArticle(Article article) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(article);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void removeArticle(Article article) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(article);
+        session.getTransaction().commit();
+        session.close();
     }
 
     private DetachedCriteria createArticleCriteria() {

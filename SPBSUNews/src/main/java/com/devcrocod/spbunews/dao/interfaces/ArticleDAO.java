@@ -39,4 +39,10 @@ public interface ArticleDAO {
      * @return articles
      */
     List<Article> getArticles(User editor);
+
+    void addArticle(String text, User edId, String title, java.sql.Date date);
+
+    void editArticle(Article article);
+
+    public void removeArticle(Article article);
 }
