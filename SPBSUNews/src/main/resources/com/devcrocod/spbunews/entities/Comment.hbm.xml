@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spbunews.entities.Comment" table="comment" schema="spsunewsbd">
+    <class name="com.devcrocod.spbunews.entities.Comment" table="comment" catalog="spsunewsbd">
         <id name="idComment" type="java.lang.Integer">
             <column name="id_comment"/>
             <generator class="identity"/>
@@ -15,7 +15,7 @@
         <many-to-one class="com.devcrocod.spbunews.entities.User" fetch="join" name="userCommentId" lazy="false">
             <column name="user_comment_id" not-null="true"/>
         </many-to-one>
-        <property name="date" type="java.util.Date">
+        <property name="date" type="date">
             <column name="date" not-null="true"/>
         </property>
         <property name="text" type="java.lang.String">

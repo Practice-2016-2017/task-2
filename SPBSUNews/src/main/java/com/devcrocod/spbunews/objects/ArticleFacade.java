@@ -2,6 +2,7 @@ package com.devcrocod.spbunews.objects;
 
 import com.devcrocod.spbunews.dao.interfaces.ArticleDAO;
 import com.devcrocod.spbunews.entities.Article;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class ArticleFacade {
     private ArticleDAO articleDAO;
     private List<Article> articles;
 
-//    @Autowired
+    @Autowired
     public void setArticleDAO(ArticleDAO articleDAO) {
         this.articleDAO = articleDAO;
         articles = articleDAO.getArticles();

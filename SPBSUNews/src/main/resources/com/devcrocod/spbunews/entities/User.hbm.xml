@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spbunews.entities.User" table="user" schema="spsunewsbd">
+    <class name="com.devcrocod.spbunews.entities.User" table="user" catalog="spsunewsbd">
         <id name="idUser" type="java.lang.Integer">
             <column name="id_user"/>
             <generator class="identity"/>

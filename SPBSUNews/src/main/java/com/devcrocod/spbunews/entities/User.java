@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "user")
 public class User {
     private int idUser;
     private String name;
@@ -117,12 +118,17 @@ public class User {
     @Override
     public int hashCode() {
         int result = idUser;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (commentUserId != null ? commentUserId.hashCode() : 0);
-        result = 31 * result + (likeUserId != null ? likeUserId.hashCode() : 0);
-        result = 31 * result + (roles != null ? roles.hashCode() : 0);
+//        result = 31 * result + (name != null ? name.hashCode() : 0);
+//        result = 31 * result + lastName.hashCode();
+//        result = 31 * result + password.hashCode();
+//        result = 31 * result + commentUserId.hashCode();
+//        result = 31 * result + (likeUserId != null ? likeUserId.hashCode() : 0);
+//        result = 31 * result + roles.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

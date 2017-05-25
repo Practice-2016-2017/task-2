@@ -5,6 +5,7 @@ import java.sql.Date;
 
 
 @Entity
+@Table(name = "Comment")
 public class Comment {
     private int idComment;
     private Date date;
@@ -93,10 +94,10 @@ public class Comment {
     @Override
     public int hashCode() {
         int result = idComment;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (text != null ? text.hashCode() : 0);
-        result = 31 * result + articleCommentId.hashCode();
-        result = 31 * result + userCommentId.hashCode();
+//        result = 31 * result + date.hashCode();
+//        result = 31 * result + text.hashCode();
+//        result = 31 * result + articleCommentId.hashCode();
+//        result = 31 * result + userCommentId.hashCode();
         return result;
     }
 }

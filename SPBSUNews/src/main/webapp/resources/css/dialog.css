@@ -400,7 +400,7 @@ select,
 }
 
 .loaded .fileupload-buttonbar {
-    /*background: url("/JsfLibrary_22_h/javax.faces.resource/load-pdf.png.xhtml?ln=images") repeat-x;*/
+    background: url("/JsfLibrary_22_h/javax.faces.resource/load-pdf.png.xhtml?ln=images") repeat-x;
     border-radius: 3px;
     border: 1px solid #e5e5e5;
     color: #616161;
@@ -468,7 +468,7 @@ select,
     background: url("#{resource['images:arrow_drop_down.png']}") 0 0 no-repeat;
 }
 
-#booksForm .ui-confirm-dialog {
+#articleForm .ui-confirm-dialog {
     background: #fff;
     width: 300px;
     border-radius: 5px;
@@ -477,7 +477,7 @@ select,
     box-shadow: 0 2px 3px #2f2f2f;
 }
 
-#booksForm .ui-dialog-titlebar {
+#articleForm .ui-dialog-titlebar {
     font-size: 16px;
     color: #969c9d;
     font-weight: bold;
@@ -488,7 +488,7 @@ select,
     border-bottom: 1px solid #e5e5e5;
 }
 
-#booksForm .ui-dialog-content {
+#articleForm .ui-dialog-content {
     padding: 10px;
     font-size: 15px;
 

@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.devcrocod.spbunews.entities.Roles" table="roles" schema="spsunewsbd">
+    <class name="com.devcrocod.spbunews.entities.Roles" table="roles" catalog="spsunewsbd">
         <id name="idRoles" type="java.lang.Integer">
             <column name="id_roles"/>
             <generator class="identity"/>

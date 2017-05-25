@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "like")
 public class Like {
     private int idLike;
     private Article articleLikeId;
@@ -66,8 +67,8 @@ public class Like {
     @Override
     public int hashCode() {
         int result = idLike;
-        result = 31 * result + articleLikeId.hashCode();
-        result = 31 * result + userLikeId.hashCode();
+//        result = 31 * result + articleLikeId.hashCode();
+//        result = 31 * result + userLikeId.hashCode();
         return result;
     }
 }

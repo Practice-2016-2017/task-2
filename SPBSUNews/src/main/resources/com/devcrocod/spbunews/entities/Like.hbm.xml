@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spbunews.entities.Like" table="like" schema="spsunewsbd">
+    <class name="com.devcrocod.spbunews.entities.Like" table="like" catalog="spsunewsbd">
         <id name="idLike" type="java.lang.Integer">
             <column name="id_like"/>
             <generator class="identity"/>

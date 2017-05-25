@@ -6,13 +6,12 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
-        <mapping resource="com.devcrocod.spsunews.entities/Article.hbm.xml"/>
-        <mapping resource="com.devcrocod.spsunews.entities/Comment.hbm.xml"/>
-        <mapping resource="com.devcrocod.spsunews.entities/Like.hbm.xml"/>
-        <mapping resource="com.devcrocod.spsunews.entities/User.hbm.xml"/>
-        <mapping resource="com.devcrocod.spsunews.entities/Roles.hbm.xml"/>
+        <mapping resource="com/devcrocod/spbunews/entities/Article.hbm.xml"/>
+        <mapping resource="com/devcrocod/spbunews/entities/Comment.hbm.xml"/>
+        <mapping resource="com/devcrocod/spbunews/entities/Like.hbm.xml"/>
+        <mapping resource="com/devcrocod/spbunews/entities/User.hbm.xml"/>
+        <mapping resource="com/devcrocod/spbunews/entities/Roles.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

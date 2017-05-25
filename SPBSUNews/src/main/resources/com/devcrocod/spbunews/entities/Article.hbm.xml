@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.devcrocod.spbunews.entities.Article" table="article" schema="spsunewsbd">
+    <class  name="com.devcrocod.spbunews.entities.Article" table="article" catalog="spsunewsbd">
         <id name="idArticle" type="java.lang.Integer">
             <column name="id_article"/>
             <generator class="identity"/>
@@ -18,7 +18,7 @@
         <property name="title" type="string">
             <column length="100" name="title" not-null="true"/>
         </property>
-        <property name="date" type="java.util.Date">
+        <property name="date" type="date">
             <column name="date" not-null="true"/>
         </property>
         <property name="content" type="java.lang.String">
@@ -30,13 +30,5 @@
         <property name="valueSum" type="java.lang.Integer">
             <column name="value_sum"/>
         </property>
-        <!--<id name="idArticle" column="id_article"/>-->
-        <!--<property name="title" column="title"/>-->
-        <!--<property name="date" column="date"/>-->
-        <!--<property name="content" column="content"/>-->
-        <!--<property name="image" column="image"/>-->
-        <!--<property name="valueSum" column="value_sum"/>-->
-        <!--<property name="editorArticleId" column="editor_article_id"/>-->
-        <!--<property name="commentArticleId" column="comment_article_id"/>-->
     </class>
 </hibernate-mapping>

@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 
 @Entity
-@Table(name = "article")
+@Table(name ="article")
 public class Article {
-    private int idArticle;
+    private Integer idArticle;
     private String title;
     private Date date;
     private String content;
@@ -34,11 +34,11 @@ public class Article {
 
     @Id
     @Column(name = "id_article")
-    public int getIdArticle() {
+    public Integer getIdArticle() {
         return idArticle;
     }
 
-    public void setIdArticle(int idArticle) {
+    public void setIdArticle(Integer idArticle) {
         this.idArticle = idArticle;
     }
 
@@ -133,14 +133,14 @@ public class Article {
 
     @Override
     public int hashCode() {
-        int result = idArticle;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(image);
-        result = 31 * result + (valueSum != null ? valueSum.hashCode() : 0);
-        result = 31 * result + (editorArticleId.hashCode());
-        result = 31 * result + (commentArticleId != null ? commentArticleId.hashCode() : 0);
+        int result = idArticle.hashCode();
+//        result = 31 * result + title.hashCode();
+//        result = 31 * result + date.hashCode();
+//        result = 31 * result + content.hashCode();
+////        result = 31 * result + Arrays.hashCode(image);
+////        result = 31 * result + valueSum.hashCode();
+//        result = 31 * result + editorArticleId.hashCode();
+//        result = 31 * result + commentArticleId.hashCode();
         return result;
     }
 }

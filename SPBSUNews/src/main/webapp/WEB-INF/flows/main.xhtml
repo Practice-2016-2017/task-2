@@ -19,28 +19,20 @@
     <ui:define name="title">
         #{msg.article_list}
     </ui:define>
-
     <ui:define name="content">
-
         <h:form id="articleForm">
-
             <!--@elvariable id="articleFacade" type="com.devcrocod.spbunews.dao.interfaces.ArticleDAO"-->
             <p:dataGrid rowIndexVar="rowIndex" columns="2" lazy="true" var="a" value="${articleFacade.articles}"
                         id="articleList"
                         styleClass="article_list" paginator="true" paginatorPosition="bottom"
                         rowsPerPageTemplate="4,10,20" paginatorTemplate="{RowsPerPageDropdown} {PageLinks}"
                         paginatorAlwaysVisible="true" emptyMessage="">
-
                 <div class="item">
-
                     <div class="image-info">
-
                         <h:outputLink styleClass="content_link" target="_blank">
                             <p:graphicImage width="110" height="150"/>
                         </h:outputLink>
-
                     </div>
-
                     <div class="info">
                         <div class="article_name">
                             <h:outputLink id="articleName" styleClass="title" target="_blank">
@@ -48,26 +40,21 @@
                             </h:outputLink>
                         </div>
                         <span>#{a.editorArticleId}</span>
-
                     </div>
                     <h:outputLink styleClass="mr" target="_blank">
                         <p class="read">#{msg.read}</p>
                     </h:outputLink>
-
                     <h:outputLink styleClass="mr" target="_blank">
                         <p class="download">#{msg.download}</p>
                     </h:outputLink>
-
                     <p:commandLink styleClass="mr" title="#{msg.edit_article}">
                         <p class="edit">#{msg.edit}</p>
                     </p:commandLink>
-
                     <p:commandLink styleClass="delete-button" title="#{msg.delete_article}" type="button">
                         <p class="delete">#{msg.delete}</p>
                     </p:commandLink>
                 </div>
             </p:dataGrid>
-
         </h:form>
     </ui:define>
 </ui:composition>
