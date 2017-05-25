@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Component
 @Scope("singleton")
 public class Utils {
@@ -19,6 +20,11 @@ public class Utils {
     @Autowired
     private MessageSource msg;
 
+    /**
+     * Gets list of search types
+     * 
+     * @return searchTypeList
+     */
     public Map<String, SearchType> getSearchTypeList() {
         searchTypeList.clear();
         searchTypeList.put(msg.getMessage("article_date", null, FacesContext.getCurrentInstance().getViewRoot().getLocale()), SearchType.DATE);
@@ -27,14 +33,29 @@ public class Utils {
         return searchTypeList;
     }
 
+    /**
+     * Sets list of search types
+     *
+     * @param searchTypeList
+     */
     public void setSearchTypeList(Map<String, SearchType> searchTypeList) {
         this.searchTypeList = searchTypeList;
     }
 
+    /**
+     * Gets search string
+     *
+     * @return searchString
+     */
     public String getSearchString() {
         return searchString;
     }
 
+    /**
+     * Sets search string
+     *
+     * @param searchString
+     */
     public void setSearchString(String searchString) {
         this.searchString = searchString;
     }
