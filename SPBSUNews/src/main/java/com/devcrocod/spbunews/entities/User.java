@@ -2,7 +2,10 @@ package com.devcrocod.spbunews.entities;
 
 import javax.persistence.*;
 
-
+/**
+ * This class describes user
+ * 
+ */
 @Entity
 @Table(name = "user")
 public class User {
@@ -14,13 +17,32 @@ public class User {
     private Like likeUserId;
     private Roles roles;
 
+    /**
+     *
+     */
     public User() {
     }
 
+    /**
+     * Initiates username
+     * 
+     * @param name
+     */
     public User(String name) {
         this.name = name;
     }
 
+    /**
+     * Initiates user
+     * 
+     * @param idUser
+     * @param name
+     * @param lastName
+     * @param password
+     * @param commentUserId
+     * @param likeUserId
+     * @param roles
+     */
     public User(int idUser, String name, String lastName, String password, Comment commentUserId, Like likeUserId, Roles roles) {
         this.idUser = idUser;
         this.name = name;
@@ -31,72 +53,142 @@ public class User {
         this.roles = roles;
     }
 
+    /**
+     * Gets user id
+     * 
+     * @return idUser
+     */
     @Id
     @Column(name = "id_user")
     public int getIdUser() {
         return idUser;
     }
 
+    /**
+     * Sets user id
+     *
+     * @param idUser to be set
+     */
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
+    /**
+     * Gets user name
+     *
+     * @return name
+     */
     @Basic
     @Column(name = "name")
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets user name
+     *
+     * @param name to be set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets user last name
+     *
+     * @return lastName
+     */
     @Basic
     @Column(name = "last_name")
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Sets user last name
+     *
+     * @param lastName to be set
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets user password
+     *
+     * @return password
+     */
     @Basic
     @Column(name = "password")
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Sets user password
+     *
+     * @param password to be set
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Gets user id from commentator
+     *
+     * @return commentUserId
+     */
     @ManyToOne
     @JoinColumn(name = "comment_user_id")
     public Comment getCommentUserId() {
         return commentUserId;
     }
 
+    /**
+     * Sets user id to commentator
+     * 
+     * @param commentUserId to be set
+     */
     public void setCommentUserId(Comment commentUserId) {
         this.commentUserId = commentUserId;
     }
 
+    /**
+     * Gets user id from like
+     *
+     * @return likeUserId
+     */
     @ManyToOne
     @JoinColumn(name = "like_user_id")
     public Like getLikeUserId() {
         return likeUserId;
     }
 
+    /**
+     * Sets user id to like
+     *
+     * @param likeUserId to be set
+     */
     public void setLikeUserId(Like likeUserId) {
         this.likeUserId = likeUserId;
     }
 
+    /**
+     * Gets user role
+     * 
+     * @return roles
+     */
     @OneToOne
     @JoinColumn(name = "roles")
     public Roles getRoles() {
         return roles;
     }
 
+    /**
+     * Set user role
+     *
+     * @param roles to be set
+     */
     public void setRoles(Roles roles) {
         this.roles = roles;
     }
