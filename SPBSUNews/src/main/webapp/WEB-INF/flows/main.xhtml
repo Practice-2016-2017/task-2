@@ -57,5 +57,17 @@
             </p:dataGrid>
         </h:form>
     </ui:define>
+
+    <ui:define name="article_count">
+        <div class="box-sh">
+            <h1><p:outputLabel id="articleCount" value="#{msg.article_count}: #{articleFacade.articles.size()}"/></h1>
+
+            <h:form id="add-action">
+                <p:commandLink>
+                    <h:outputText value="#{msg.add_article}" title="#{msg.add_article}"/>
+                </p:commandLink>
+            </h:form>
+        </div>
+    </ui:define>
 </ui:composition>
 </html>

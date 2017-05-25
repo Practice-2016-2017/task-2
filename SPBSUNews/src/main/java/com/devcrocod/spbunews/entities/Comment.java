@@ -5,7 +5,7 @@ import java.sql.Date;
 
 
 @Entity
-@Table(name = "Comment")
+@Table(name = "comment")
 public class Comment {
     private int idComment;
     private Date date;
