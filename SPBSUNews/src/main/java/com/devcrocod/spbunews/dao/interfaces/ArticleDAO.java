@@ -40,9 +40,27 @@ public interface ArticleDAO {
      */
     List<Article> getArticles(User editor);
 
+    /**
+     * Adds new article
+     *
+     * @param text
+     * @param edId
+     * @param title
+     * @param date
+     */
     void addArticle(String text, User edId, String title, java.sql.Date date);
 
+    /**
+     * Edits existing article
+     *
+     * @param article to add
+     */
     void editArticle(Article article);
 
+    /**
+     * Removes existing article
+     *
+     * @param article to remove
+     */
     public void removeArticle(Article article);
 }
